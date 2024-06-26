@@ -1,0 +1,47 @@
+basePath: /
+definitions:
+  api.ResponseData:
+    properties:
+      data:
+        properties:
+          error: {}
+          result:
+            properties:
+              results:
+                items: {}
+                type: array
+            type: object
+        type: object
+      responseCode:
+        type: integer
+      responseDetail:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: sagarsingh@polarisgrids.com
+    name: API Support
+    url: localhost:8080
+  description: ginTut Api Docs
+  title: Gin Tutorial API
+  version: "1.0"
+paths:
+  /get-all-users:
+    get:
+      description: Get All Users Details From the DataBase
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.ResponseData'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/api.ResponseData'
+      summary: Get all users API
+      tags:
+      - Users Data
+swagger: "2.0"

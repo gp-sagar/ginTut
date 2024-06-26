@@ -1,0 +1,71 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "ginTut Api Docs",
+        "title": "Gin Tutorial API",
+        "contact": {
+            "name": "API Support",
+            "url": "localhost:8080",
+            "email": "sagarsingh@polarisgrids.com"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "paths": {
+        "/get-all-users": {
+            "get": {
+                "description": "Get All Users Details From the DataBase",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Users Data"
+                ],
+                "summary": "Get all users API",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/api.ResponseData"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/api.ResponseData"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "api.ResponseData": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "error": {},
+                        "result": {
+                            "type": "object",
+                            "properties": {
+                                "results": {
+                                    "type": "array",
+                                    "items": {}
+                                }
+                            }
+                        }
+                    }
+                },
+                "responseCode": {
+                    "type": "integer"
+                },
+                "responseDetail": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
